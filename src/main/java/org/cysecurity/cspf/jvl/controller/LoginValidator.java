@@ -49,10 +49,10 @@ public class LoginValidator extends HttpServlet {
                                {
                                    ResultSet rs=null;
                                    Statement stmt = con.createStatement();  
-                                   rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
-                     
                                   String regex = "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b";
                                   if (pass.matches(regex) && user.matches(regex)) { 
+                                   rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
+                     
                                     if(rs != null && rs.next()){
                                      HttpSession session=request.getSession();
                                      session.setAttribute("isLoggedIn", "1");
