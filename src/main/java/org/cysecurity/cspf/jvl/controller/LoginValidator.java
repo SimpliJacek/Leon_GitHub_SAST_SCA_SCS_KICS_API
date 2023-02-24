@@ -51,7 +51,7 @@ public class LoginValidator extends HttpServlet {
                                    Statement stmt = con.createStatement();  
                                   String regex = "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b";
                                   if (pass.matches(regex) && user.matches(regex)) { 
-                                   rs=stmt.executeQuery("select * from users where username='"+user+"' and password='"+pass+"'");
+                                   rs=stmt.executeQuery("select * from users where username='user' and password='pass'");
                      
                                     if(rs != null && rs.next()){
                                      HttpSession session=request.getSession();
